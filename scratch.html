@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scratch Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation Link Back to Index -->
+    <div class="navigation">
+        <a href="index.html">Back to Resume Page</a>
+        <!-- Link to basketball-trivia.html -->
+        <a href="basketball-trivia.html" style="margin-left: 20px;">Go to Basketball Trivia</a>
+    </div>
+
+    <h1>Welcome to My Scratch Page</h1>
+
+    <!-- Unordered List inside an Ordered List (Corrected Order) -->
+    <div class="content-section">
+        <h2>My Favorite Basketball Teams</h2>
+        <ol>
+            <li>Los Angeles Lakers
+                <ul>
+                    <li>Lebron James</li>
+                    <li>Luka Doncic</li>
+                </ul>
+            </li>
+            <li>Golden State Warriors
+                <ul>
+                    <li>Stephen Curry</li>
+                    <li>Jimmy Butler</li>
+                </ul>
+            </li>
+            <li>Chicago Bulls
+                <ul>
+                    <li>Lonzo Ball</li>
+                    <li>Matas Buzelis</li>
+                </ul>
+            </li>
+            <li>Boston Celtics
+                <ul>
+                    <li>Jayson Tatum</li>
+                    <li>Jaylen Brown</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+    <!-- Embedded Image of LeBron -->
+    <div class="content-section">
+        <h2>My Favorite Basketball Moment</h2>
+        <img src="Lebron.jpg" alt="LeBron James Dunk">
+    </div>
+
+    <!-- Embedded YouTube Video (Updated Text) -->
+    <div class="content-section">
+        <h2>Watch These Funny Highlights</h2>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/9Z6b-jfdJlw" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <!-- On-Page Anchor -->
+    <div class="content-section">
+        <h2>Jump to Tableau Visualization</h2>
+        <a href="#tableau-visualization">Go to Tableau</a>
+    </div>
+
+    <!-- Custom Background Section -->
+    <div class="content-section" style="background-color: #d9f7ff; padding: 20px;">
+        <h2>Basketball Stats and Data</h2>
+        <p>Here, I will show you an interactive Tableau graph with NBA hustle stats for the 2024 season.</p>
+    </div>
+
+    <!-- Tableau Interactive Graph -->
+    <div class="content-section" id="tableau-visualization">
+        <h2>Interactive Tableau Visualization</h2>
+        <div class="tableau-container">
+            <iframe src="https://public.tableau.com/views/NBAHustlestats2024/Data?:showVizHome=no&:embed=true" width="100%" height="500" frameborder="0"></iframe>
+        </div>
+    </div>
+
+</body>
+</html>

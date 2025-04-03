@@ -1,0 +1,83 @@
+/* General Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    color: #333;  /* Font color */
+    padding: 20px;
+    text-align: center; /* Centering all content */
+}
+
+/* Header Styling */
+h1, h2 {
+    font-family: 'Arial', sans-serif;  /* Font family */
+    color: #2c3e50;  /* Font color for headings */
+    text-align: center;
+}
+
+/* Ordered List Styling */
+ol {
+    padding: 0;
+    list-style-type: decimal; /* Numbered items in the list */
+    text-align: left;
+    display: inline-block; /* Align list items properly */
+    margin: 0 auto; /* Center the ordered list */
+}
+
+/* Unordered List Styling (for bullet points) */
+ul {
+    list-style-type: disc; /* Bullet points */
+    padding-left: 20px; /* Indent the bullets */
+    text-align: left;
+    color: #555;  /* Font color for list items */
+}
+
+/* Content Section Styling */
+.content-section {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Custom Background Styling */
+.custom-background {
+    background-color: #d9f7ff;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px; /* Added rounded corners for styling */
+}
+
+/* Image Styling */
+img {
+    width: 100%;
+    max-width: 600px; /* Make sure image fits */
+    height: auto;
+    margin-top: 20px;
+}
+
+/* Tableau Container Styling */
+.tableau-container {
+    margin-top: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Navigation Link Styling */
+.navigation {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Ensure content is properly spaced */
+.content-section h2 {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    color: #2980b9;  /* Font color for subheadings */
+}
+
+/* Additional Styling for Divs */
+.divider {
+    margin-top: 50px;
+    border-top: 2px solid #ccc;  /* Divider line between sections */
+    padding-top: 20px;
+    padding-bottom: 20px;
+}

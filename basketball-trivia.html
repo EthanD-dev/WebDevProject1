@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Basketball Trivia Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .link {
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 16px;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .game-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #007bff;
+        }
+
+        .question {
+            font-size: 1.2rem;
+            margin: 20px 0;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .option:hover {
+            background-color: #0056b3;
+        }
+
+        .result {
+            font-size: 1.2rem;
+            margin-top: 20px;
+        }
+
+        .button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            display: none;
+        }
+
+        .button:hover {
+            background-color: #218838;
+        }
+
+        .score {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #28a745;
+        }
+
+        .reset-btn {
+            display: none;
+            background-color: #ffc107;
+            color: #333;
+        }
+
+        .reset-btn:hover {
+            background-color: #e0a800;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="scratch.html" class="link">Back to Scratch Page</a>
+
+    <div class="game-container" id="game-container">
+        <h1>Basketball Trivia Game</h1>
+        <div id="question" class="question">Question will appear here</div>
+        <div id="options" class="options">
+            <!-- Options will be generated dynamically -->
+        </div>
+        <div id="result" class="result"></div>
+        <button id="nextBtn" class="button">Next Question</button>
+        <button id="resetBtn" class="reset-btn">Restart Game</button>
+        <div class="score" id="score">Score: 0</div>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                question: "Who won the NBA Championship in 2020?",
+                options: ["Miami Heat", "Los Angeles Lakers", "Toronto Raptors", "Golden State Warriors"],
+                correct: 1
+            },
+            {
+                question: "Who is known as 'King James'?",
+                options: ["Kevin Durant", "Kobe Bryant", "LeBron James", "Stephen Curry"],
+                correct: 2
+            },
+            {
+                question: "Which team does Giannis Antetokounmpo play for?",
+                options: ["Boston Celtics", "Los Angeles Lakers", "Milwaukee Bucks", "Phoenix Suns"],
+                correct: 2
+            },
+            {
+                question: "Who holds the record for the most points scored in a single NBA game?",
+                options: ["Kobe Bryant", "Michael Jordan", "Wilt Chamberlain", "LeBron James"],
+                correct: 2
+            },
+            {
+                question: "Who is the NBA's all-time leading scorer?",
+                options: ["Kareem Abdul-Jabbar", "LeBron James", "Karl Malone", "Michael Jordan"],
+                correct: 0
+            },
+            {
+                question: "What year was the NBA founded?",
+                options: ["1945", "1950", "1946", "1960"],
+                correct: 2
+            },
+            {
+                question: "Who is the NBA player with the most MVP awards?",
+                options: ["Michael Jordan", "LeBron James", "Kareem Abdul-Jabbar", "Stephen Curry"],
+                correct: 2
+            },
+            {
+                question: "Which team drafted Dirk Nowitzki?",
+                options: ["Dallas Mavericks", "Milwaukee Bucks", "Chicago Bulls", "San Antonio Spurs"],
+                correct: 1
+            },
+            {
+                question: "What is the maximum points a player can score in a single possession?",
+                options: ["4", "5", "6", "7"],
+                correct: 2
+            },
+            {
+                question: "Which player is known for his 'Skyhook' shot?",
+                options: ["Kareem Abdul-Jabbar", "Shaquille O'Neal", "Magic Johnson", "Tim Duncan"],
+                correct: 0
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        function loadQuestion() {
+            const question = questions[currentQuestionIndex];
+            document.getElementById("question").textContent = question.question;
+            const optionsContainer = document.getElementById("options");
+            optionsContainer.innerHTML = ""; // Clear previous options
+
+            question.options.forEach((option, index) => {
+                const button = document.createElement("button");
+                button.classList.add("option");
+                button.textContent = option;
+                button.onclick = () => checkAnswer(index);
+                optionsContainer.appendChild(button);
+            });
+
+            document.getElementById("nextBtn").style.display = "none";
+            document.getElementById("result").textContent = "";
+        }
+
+        function checkAnswer(selectedIndex) {
+            const question = questions[currentQuestionIndex];
+            const isCorrect = selectedIndex === question.correct;
+
+            if (isCorrect) {
+                score++;
+                document.getElementById("result").textContent = "Correct!";
+            } else {
+                document.getElementById("result").textContent = "Wrong!";
+            }
+
+            document.getElementById("score").textContent = `Score: ${score}`;
+            document.getElementById("nextBtn").style.display = "inline-block";
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                loadQuestion();
+            } else {
+                endGame();
+            }
+        }
+
+        function endGame() {
+            document.getElementById("question").textContent = "Game Over!";
+            document.getElementById("options").innerHTML = "";
+            document.getElementById("result").textContent = `Final Score: ${score}`;
+            document.getElementById("nextBtn").style.display = "none";
+            document.getElementById("resetBtn").style.display = "inline-block";
+        }
+
+        function resetGame() {
+            score = 0;
+            currentQuestionIndex = 0;
+            document.getElementById("result").textContent = "";
+            document.getElementById("score").textContent = `Score: ${score}`;
+            document.getElementById("resetBtn").style.display = "none";
+            loadQuestion();
+        }
+
+        document.getElementById("nextBtn").onclick = nextQuestion;
+        document.getElementById("resetBtn").onclick = resetGame;
+
+        // Start the game
+        loadQuestion();
+    </script>
+
+</body>
+</html>
